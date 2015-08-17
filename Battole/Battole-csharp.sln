@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{021193A0-2A69-EF57-A774-CAFBFA27FBA5}") = "Battole", "Assembly-CSharp-vs.csproj", "{27D71CE7-6971-6806-D63F-4C7BF33CD8EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27D71CE7-6971-6806-D63F-4C7BF33CD8EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27D71CE7-6971-6806-D63F-4C7BF33CD8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27D71CE7-6971-6806-D63F-4C7BF33CD8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27D71CE7-6971-6806-D63F-4C7BF33CD8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	
+EndGlobal
