@@ -15,6 +15,10 @@ public class Player : MonoBehaviour {
         while (true) {
             //弾をプレイヤーと同じ位置/角度で作成
             spaceship.Shot(transform);
+
+            //ショット音を鳴らす
+            GetComponent<AudioSource>().Play();
+
             //shotDelay秒待つ
             yield return new WaitForSeconds(spaceship.shotDelay);
         }
@@ -33,9 +37,34 @@ public class Player : MonoBehaviour {
         Vector2 direction = new Vector2(x, y).normalized;
 
         //移動
-        spaceship.Move(direction);
+        //spaceship.Move(direction);
+
+        //移動の制限
+        Move(direction);
 	
 	}
+
+    void Move(Vector2 direction)
+    {
+        //画面左下のワールド座標をビューポートから取得
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+
+        //画面右上のワールド座標をビューポートから取得
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+
+        //プレイヤーの座標を取得
+        Vector2 pos = transform.position;
+
+        //移動量を加える
+        pos += direction * spaceship.speed * Time.deltaTime;
+
+        //プレイヤーの位置が画面内に収まるように制限をかける
+        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
+        pos.y = Mathf.Clamp(pos.y, min.y, max.y);
+
+        //制限をかけた値をプレイヤーの位置とする
+        transform.position = pos;
+    }
 
     //ぶつかった瞬間呼び出される
     void OnTriggerEnter2D(Collider2D c)
@@ -55,6 +84,9 @@ public class Player : MonoBehaviour {
         //レイヤー名がBUllet(Enemy)またはEnemyの場合は爆発
         if (layerName == "Bullet(Enemy)" || layerName == "Enemy")
         {
+            //Managerコンポートネントからシーン内から探して取得し、GameOverメソッドを呼び出す
+            FindObjectOfType<Manager>().GameOver();
+
             //爆発する
             spaceship.Explosion();
 

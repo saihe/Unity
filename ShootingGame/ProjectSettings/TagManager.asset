@@ -41,9 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: DestroyArea
+    uniqueID: 991523425
+    locked: 0
   - name: Bullet
     uniqueID: 1358153607
     locked: 0
   - name: Player
     uniqueID: 1452392161
+    locked: 0
+  - name: Enemy
+    uniqueID: 2506404587
+    locked: 0
+  - name: Explosion
+    uniqueID: 4046268687
     locked: 0

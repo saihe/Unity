@@ -3,8 +3,9 @@ using System.Collections;
 
 public class DestroyArea : MonoBehaviour {
 
-    void OnTriggerExit2d(Collider2D c)
+    void OnTriggerExit2D(Collider2D c)
     {
+        print(c + "is out of DestroyArea");
         Destroy(c.gameObject);
     }
 

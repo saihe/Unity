@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.2249999, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467348}
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1da10e671461b241b86b0a119b3275a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 1
 --- !u!114 &11423530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,10 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69232ae6008cb84469751826eabc5fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 9.99999994e-09
+  speed: .5
   shotDelay: .300000012
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
-  canShot: 1
+  canShot: 0
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
 --- !u!212 &21281176
 SpriteRenderer:
@@ -220,7 +221,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1788562709
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: bf3bdd2147b394bc2b771f2556f0b49d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -233,7 +234,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: speed
-      value: .100000001
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: canShot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
+      value: -1788562709
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
