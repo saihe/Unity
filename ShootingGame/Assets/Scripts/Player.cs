@@ -6,11 +6,17 @@ public class Player : MonoBehaviour {
     //Spaceshipコンポーネント
     Spaceship spaceship;
 
+    //Backgroundコンポーネント
+    Background background;
+
     // Use this for initialization
     IEnumerator Start ()
     {
         //Spaceshipコンポーネントを取得
         spaceship = GetComponent<Spaceship>();
+
+        //Backgroundコンポーネントを取得。3つのうちどれか1つを取得する
+        background = FindObjectOfType<Background>();
 
         while (true) {
             //弾をプレイヤーと同じ位置/角度で作成
@@ -46,11 +52,22 @@ public class Player : MonoBehaviour {
 
     void Move(Vector2 direction)
     {
+        //背景のスケール
+        Vector2 scale = background.transform.localScale;
+
+        //背景のスケールから取得
+        Vector2 min = scale * -0.5f;
+
+        //背景のスケールから取得
+        Vector2 max = scale * 0.5f;
+
+        /*
         //画面左下のワールド座標をビューポートから取得
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
 
         //画面右上のワールド座標をビューポートから取得
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        */
 
         //プレイヤーの座標を取得
         Vector2 pos = transform.position;
@@ -62,8 +79,25 @@ public class Player : MonoBehaviour {
         pos.x = Mathf.Clamp(pos.x, min.x, max.x);
         pos.y = Mathf.Clamp(pos.y, min.y, max.y);
 
-        //制限をかけた値をプレイヤーの位置とする
+        //制限をかけた値をプレイヤーの位置とす
         transform.position = pos;
+
+
+        //タッチされた座標を取得
+        Vector2 screenPos = Input.mousePosition;
+
+        //タッチされた座標を画面上の座標に変換
+        Vector2 touchPos = Camera.main.ScreenToWorldPoint(screenPos);
+
+        //移動量を加える
+        touchPos += direction * spaceship.speed * Time.deltaTime;
+
+        //プレイヤーの位置が画面内に収まるように制限をかける
+        touchPos.x = Mathf.Clamp(touchPos.x, min.x, max.x);
+        touchPos.y = Mathf.Clamp(touchPos.y, min.y, max.y);
+
+        //制限をかけた値をプレイヤーの位置とする
+        transform.position = touchPos;
     }
 
     //ぶつかった瞬間呼び出される
@@ -72,6 +106,7 @@ public class Player : MonoBehaviour {
 
         //レイヤー名を取得
         string layerName = LayerMask.LayerToName(c.gameObject.layer);
+        print(layerName + " to Player");
 
         //レイヤー名がBullet(Enemy)のときは弾を削除
         if(layerName == "Bullet(Enemy)")

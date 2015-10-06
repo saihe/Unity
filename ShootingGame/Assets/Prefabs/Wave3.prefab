@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473844}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437950}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 114: {fileID: 11451732}
   - 114: {fileID: 11439622}
   - 60: {fileID: 6050822}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432040}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - 114: {fileID: 11435030}
   - 114: {fileID: 11456928}
   - 60: {fileID: 6003562}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: 'Enemy '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438178}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Wave3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 422296}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 436758}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477596}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412018}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 454032}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414614}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433452}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403180}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 431760}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482350}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - 114: {fileID: 11401382}
   - 114: {fileID: 11484952}
   - 60: {fileID: 6095104}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - 114: {fileID: 11430706}
   - 114: {fileID: 11433214}
   - 60: {fileID: 6076724}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440528}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - 114: {fileID: 11416950}
   - 114: {fileID: 11408668}
   - 60: {fileID: 6000300}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: 'Enemy '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 472654}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: 1
+  shotDelay: 2
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -915,6 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  point: 200
 --- !u!114 &11416950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,7 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: 1
+  shotDelay: 2
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -943,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: 1
+  shotDelay: 2
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -959,6 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  point: 200
 --- !u!114 &11435030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -971,7 +973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: 1
+  shotDelay: 2
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -987,6 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  point: 200
 --- !u!114 &11451732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -999,7 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: 1
+  shotDelay: 2
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -1015,6 +1018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  point: 200
 --- !u!114 &11484952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1027,6 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  point: 200
 --- !u!212 &21204048
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1182,7 +1187,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: shotDelay
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: point
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

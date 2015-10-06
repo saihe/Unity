@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour {
     //ヒットポイント
     public int hp = 1;
 
+    //スコアのポイント
+    public int point = 100;
+
     //Spaceshipコンポーネント
     Spaceship spaceship;
 
@@ -51,6 +54,7 @@ public class Enemy : MonoBehaviour {
     {
         //レイヤー名を取得
         string layerName = LayerMask.LayerToName(c.gameObject.layer);
+        print(layerName + " to Enemy");
 
         //レイヤー名がBullet(Player)位階のときは何も行わない
         if (layerName != "Bullet(Player)") return;
@@ -69,6 +73,9 @@ public class Enemy : MonoBehaviour {
 
         //ヒットポイントが0以下であれば
         if (hp <= 0) {
+            //スコアコンポーネントを取得してポイントを追加
+            FindObjectOfType<Score>().AddPoint(point);
+
             //爆発
             spaceship.Explosion();
 

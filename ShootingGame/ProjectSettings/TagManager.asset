@@ -13,6 +13,7 @@ TagManager:
   - UI
   - 
   - 
+  - BlackScreen
   - Player
   - Enemy
   - Bullet(Player)
@@ -36,10 +37,12 @@ TagManager:
   - 
   - 
   - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BlackScreen
+    uniqueID: 2486823629
     locked: 0
   - name: DestroyArea
     uniqueID: 991523425

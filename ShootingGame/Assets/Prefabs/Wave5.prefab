@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464244}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490516}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 114: {fileID: 11410628}
   - 114: {fileID: 11441494}
   - 60: {fileID: 6090838}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: 'Enemy '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446260}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - 114: {fileID: 11444908}
   - 114: {fileID: 11416904}
   - 60: {fileID: 6079828}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - 114: {fileID: 11430706}
   - 114: {fileID: 11475914}
   - 60: {fileID: 6073988}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: 'Enemy '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 435936}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433308}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414002}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498486}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Wave5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408852}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480422}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 430302}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 2, z: 0}
+  m_LocalPosition: {x: -3, y: -2, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 446260}
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 124538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 464244}
@@ -346,7 +346,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalPosition: {x: 3, y: -2, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 480422}
@@ -373,7 +373,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452368}
@@ -554,8 +554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69232ae6008cb84469751826eabc5fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .00100000005
-  shotDelay: .300000012
+  speed: 0
+  shotDelay: 1
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  point: 2000
 --- !u!114 &11430706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -582,8 +583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69232ae6008cb84469751826eabc5fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .00100000005
-  shotDelay: .300000012
+  speed: 0
+  shotDelay: 1
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -599,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  point: 2000
 --- !u!114 &11444908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -610,8 +612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69232ae6008cb84469751826eabc5fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .00100000005
-  shotDelay: .300000012
+  speed: 0
+  shotDelay: 1
   bullet: {fileID: 133874, guid: 170545762aac1e14691e7c57f8777990, type: 2}
   canShot: 1
   explosion: {fileID: 166778, guid: 0f925f38dbff9f443802ed70a6696bf0, type: 2}
@@ -627,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  point: 2000
 --- !u!212 &21240962
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -719,6 +722,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_AngularDrag
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: point
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shotDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
