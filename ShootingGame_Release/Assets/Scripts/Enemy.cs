@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
 	// スコアのポイント
 	public int point = 100;
 
+    //死んだかどうか
+    public bool death = false;
+
 	// Spaceshipコンポーネント
 	Spaceship spaceship;
 
@@ -52,9 +55,13 @@ public class Enemy : MonoBehaviour
 	{
 		// レイヤー名を取得
 		string layerName = LayerMask.LayerToName (c.gameObject.layer);
-		
-		// レイヤー名がBullet (Player)以外の時は何も行わない
-		if (layerName != "Bullet (Player)") return;
+
+        // レイヤー名がBullet (Player)以外の時は何も行わない
+        if (layerName != "Bullet (Player)")
+        {
+            death = false;
+            return;
+        }
 
 		// PlayerBulletのTransformを取得
 		Transform playerBulletTransform = c.transform.parent;
@@ -79,6 +86,9 @@ public class Enemy : MonoBehaviour
 			
 			// エネミーの削除
 			Destroy (gameObject);
+
+            //
+            death = true;
 
 		}else{
 			// Damageトリガーをセット
