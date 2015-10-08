@@ -43,12 +43,14 @@ public class Player : MonoBehaviour
         // 機体の移動
         void Move (Vector2 direction)
         {
+                
                 // 画面左下のワールド座標をビューポートから取得
                 Vector2 min = Camera.main.ViewportToWorldPoint (new Vector2 (0, 0));
 
                 // 画面右上のワールド座標をビューポートから取得
                 Vector2 max = Camera.main.ViewportToWorldPoint (new Vector2 (1, 1));
-
+                
+                /*
                 // プレイヤーの座標を取得
                 Vector2 pos = transform.position;
 
@@ -61,10 +63,29 @@ public class Player : MonoBehaviour
 
                 // 制限をかけた値をプレイヤーの位置とする
                 transform.position = pos;
-        }
+                */
+        
+                
+                //タッチされた座標を取得
+                Vector2 screenPos = Input.mousePosition;
 
-        // ぶつかった瞬間に呼び出される
-        void OnTriggerEnter2D (Collider2D c)
+                //タッチされた座標を画面上の座標に変換
+                Vector2 touchPos = Camera.main.ScreenToWorldPoint(screenPos);
+
+                //移動量を加える
+                touchPos += direction * spaceship.speed * Time.deltaTime;
+
+                //プレイヤーの位置が画面内に収まるように制限をかける
+                touchPos.x = Mathf.Clamp(touchPos.x, min.x, max.x);
+                touchPos.y = Mathf.Clamp(touchPos.y, min.y, max.y);
+
+                //制限をかけた値をプレイヤーの位置とする
+                transform.position = touchPos;
+                
+    }
+
+    // ぶつかった瞬間に呼び出される
+    void OnTriggerEnter2D (Collider2D c)
         {
                 // レイヤー名を取得
                 string layerName = LayerMask.LayerToName (c.gameObject.layer);

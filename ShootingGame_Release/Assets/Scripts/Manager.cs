@@ -74,7 +74,7 @@ public class Manager : MonoBehaviour
 
   private void drawButton() {    
     // ボタンの設置
-    int btnW = 140, btnH = 50;
+    int btnW = 120, btnH = 50;
     GUI.skin.button.fontSize = 18;
     leaderBoardButton = GUI.Button( new Rect(0*btnW, 0, btnW, btnH), "Leader Board" );
     commentButton     = GUI.Button( new Rect(1*btnW, 0, btnW, btnH), "Comment" );

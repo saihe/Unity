@@ -215,7 +215,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: 5cf0eb48b4e374640bcc157a5f4a7284, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 60
+  m_FontSize: 40
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -262,7 +262,7 @@ GameObject:
   - 4: {fileID: 291862732}
   - 61: {fileID: 291862731}
   - 114: {fileID: 291862733}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: DestroyArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: 5cf0eb48b4e374640bcc157a5f4a7284, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 60
+  m_FontSize: 40
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
