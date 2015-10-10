@@ -9,17 +9,25 @@ public class Enemy : MonoBehaviour
 	// スコアのポイント
 	public int point = 100;
 
-    //死んだかどうか
-    public bool death = false;
-
 	// Spaceshipコンポーネント
 	Spaceship spaceship;
 
+    //Itemsプレハブ
+    public GameObject[] items;
+
+    //Itemを持ってるかどうか
+    public bool haveItem = false;
+
+    //Itemを持っているかどうかランダム
+    public int haveRandom = 3;
+
+
 	IEnumerator Start ()
 	{
-		
-		// Spaceshipコンポーネントを取得
-		spaceship = GetComponent<Spaceship> ();
+        
+
+        // Spaceshipコンポーネントを取得
+        spaceship = GetComponent<Spaceship> ();
 		
 		// ローカル座標のY軸のマイナス方向に移動する
 		Move (transform.up * -1);
@@ -59,7 +67,6 @@ public class Enemy : MonoBehaviour
         // レイヤー名がBullet (Player)以外の時は何も行わない
         if (layerName != "Bullet (Player)")
         {
-            death = false;
             return;
         }
 
@@ -78,19 +85,39 @@ public class Enemy : MonoBehaviour
 		// ヒットポイントが0以下であれば
 		if(hp <= 0 )
 		{
+            //ランダムでアイテムを持っているか判定
+            haveRandom = Random.Range(1, 10);
+            if(haveRandom > 0 && haveRandom < 4)
+            {
+                //Itemを持っている
+                haveItem = true;
+            }
+            else
+            {
+                //Itemを持っていない
+                haveItem = false;
+            }
+            //haveRandom無効
+            //haveItem = true;
+            print("haveItem: " + haveItem);
+
 			// スコアコンポーネントを取得してポイントを追加
 			FindObjectOfType<Score>().AddPoint(point);
 
 			// 爆発
 			spaceship.Explosion ();
-			
-			// エネミーの削除
-			Destroy (gameObject);
+            
+            // エネミーの削除
+            Destroy (gameObject);
 
-            //
-            death = true;
-
-		}else{
+            if (haveItem == true)
+            {
+                int num = Random.Range(0, items.Length);
+                //Itemをインスタンス
+                Instantiate(items[num], gameObject.transform.position, items[num].transform.rotation);
+            }
+        }
+        else{
 			// Damageトリガーをセット
 			spaceship.GetAnimator().SetTrigger("Damage");
 		

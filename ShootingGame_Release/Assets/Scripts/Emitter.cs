@@ -11,6 +11,9 @@ public class Emitter : MonoBehaviour
 	
 	// Managerコンポーネント
 	private Manager manager;
+
+    //周回難易度
+    public int difficult = 0;
 	
 	IEnumerator Start ()
 	{
@@ -24,6 +27,9 @@ public class Emitter : MonoBehaviour
 		manager = FindObjectOfType<Manager>();
 		
 		while (true) {
+
+            //難易度
+            difficult++;
 			
 			// タイトル表示中は待機
 			while(manager.IsPlaying() == false) {

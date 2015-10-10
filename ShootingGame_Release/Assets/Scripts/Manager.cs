@@ -2,24 +2,27 @@
 
 public class Manager : MonoBehaviour
 {
-  // Playerプレハブ
-  public GameObject player;
+    // Playerプレハブ
+    public GameObject player;
 	
-  // タイトル
-  private GameObject title;
+    // タイトル
+    private GameObject title;
+
+    //HP GUIプレハブ
+    public GameObject hpGUI;
   
 
-  // ボタンが押されると対応する変数がtrueになる
-  private bool leaderBoardButton;
-  private bool commentButton;
-  private bool logOutButton;
+    // ボタンが押されると対応する変数がtrueになる
+    private bool leaderBoardButton;
+    private bool commentButton;
+    private bool logOutButton;
 	
 
-  void Start ()
-  {
+    void Start ()
+    {
     // Titleゲームオブジェクトを検索し取得する
     title = GameObject.Find ("Title");
-  }
+    }
 
 	
   void OnGUI() {
@@ -52,6 +55,7 @@ public class Manager : MonoBehaviour
     // ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
     title.SetActive (false);
     Instantiate (player, player.transform.position, player.transform.rotation);
+        Instantiate(hpGUI, hpGUI.transform.position, hpGUI.transform.rotation);
   }
 	
 
