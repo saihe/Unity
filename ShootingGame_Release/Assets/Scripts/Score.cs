@@ -12,9 +12,6 @@ public class Score : MonoBehaviour
   // スコア
   private int score;
 	
-  // ハイスコア
-  private NCMB.HighScore highScore;
-	
   // PlayerPrefsで保存するためのキー
   // private string highScoreKey = "highScore";
 	
@@ -24,24 +21,15 @@ public class Score : MonoBehaviour
   void Start ()
   {
     Initialize ();
-
-    // ハイスコアを取得する。保存されてなければ0点。
-    string name = FindObjectOfType<UserAuth>().currentPlayer();
-    highScore = new NCMB.HighScore( 0, name );
-    highScore.fetch();
   }
 	
   void Update ()
   {
-    // スコアがハイスコアより大きければ
-    if (highScore.score < score) {
-      isNewRecord = true;
-      highScore.score = score;
-    }
+    isNewRecord = true;
 		
     // スコア・ハイスコアを表示する
     scoreGUIText.text = score.ToString ();
-    highScoreGUIText.text = "HighScore : " + highScore.score.ToString ();
+    highScoreGUIText.text = "HighScore : " + score.ToString ();
   }
 	
   // ゲーム開始前の状態に戻す
@@ -67,12 +55,6 @@ public class Score : MonoBehaviour
   // ハイスコアの保存
   public void Save ()
   {
-    // ハイスコアを保存する
-    // PlayerPrefs.SetInt (highScoreKey, highScore);
-    // PlayerPrefs.Save ();
-    if( isNewRecord )
-      highScore.save();
-		
     // ゲーム開始前の状態に戻す
     Initialize ();
   }

@@ -20,47 +20,41 @@ public class Enemy : MonoBehaviour
 
     //Itemを持っているかどうかランダム
     public int haveRandom = 3;
-
-
+    
 	IEnumerator Start ()
 	{
-        
-
         // Spaceshipコンポーネントを取得
         spaceship = GetComponent<Spaceship> ();
-		
-		// ローカル座標のY軸のマイナス方向に移動する
+
+       	// ローカル座標のY軸のマイナス方向に移動する
 		Move (transform.up * -1);
-		
-		// canShotがfalseの場合、ここでコルーチンを終了させる
-		if (spaceship.canShot == false) {
+        print("EnemyHP: " + hp);
+        // canShotがfalseの場合、ここでコルーチンを終了させる
+        if (spaceship.canShot == false) {
 			yield break;
 		}
-			
-		while (true) {
-			
+            
+        while (true) {
 			// 子要素を全て取得する
 			for (int i = 0; i < transform.childCount; i++) {
-				
 				Transform shotPosition = transform.GetChild (i);
-				
 				// ShotPositionの位置/角度で弾を撃つ
 				spaceship.Shot (shotPosition);
 			}
-			
 			// shotDelay秒待つ
 			yield return new WaitForSeconds (spaceship.shotDelay);
 		}
 	}
 
-	// 機体の移動
-	public void Move (Vector2 direction)
+    // 機体の移動
+    public void Move (Vector2 direction)
 	{
 		GetComponent<Rigidbody2D>().velocity = direction * spaceship.speed;
 	}
 
 	void OnTriggerEnter2D (Collider2D c)
 	{
+ 
 		// レイヤー名を取得
 		string layerName = LayerMask.LayerToName (c.gameObject.layer);
 
@@ -98,8 +92,8 @@ public class Enemy : MonoBehaviour
                 haveItem = false;
             }
             //haveRandom無効
-            //haveItem = true;
-            print("haveItem: " + haveItem);
+            haveItem = true;
+            //print("haveItem: " + haveItem);
 
 			// スコアコンポーネントを取得してポイントを追加
 			FindObjectOfType<Score>().AddPoint(point);
@@ -114,13 +108,21 @@ public class Enemy : MonoBehaviour
             {
                 int num = Random.Range(0, items.Length);
                 //Itemをインスタンス
-                Instantiate(items[num], gameObject.transform.position, items[num].transform.rotation);
+                Instantiate(items[3], gameObject.transform.position, items[num].transform.rotation);
             }
         }
         else{
 			// Damageトリガーをセット
 			spaceship.GetAnimator().SetTrigger("Damage");
-		
 		}
 	}
+
+    public int setHp(int level)
+    {
+        print("Input Level: " + level);
+        hp = level * hp;
+        hp = 1000;
+        print("currentHP: " + hp);
+        return hp;
+    }
 }

@@ -11,10 +11,7 @@ public class Emitter : MonoBehaviour
 	
 	// Managerコンポーネント
 	private Manager manager;
-
-    //周回難易度
-    public int difficult = 0;
-	
+    
 	IEnumerator Start ()
 	{
 		
@@ -25,25 +22,32 @@ public class Emitter : MonoBehaviour
 		
 		// Managerコンポーネントをシーン内から探して取得する
 		manager = FindObjectOfType<Manager>();
-		
-		while (true) {
 
-            //難易度
-            difficult++;
-			
-			// タイトル表示中は待機
-			while(manager.IsPlaying() == false) {
+		while (true) {
+            // タイトル表示中は待機
+            while (manager.IsPlaying() == false) {
 				yield return new WaitForEndOfFrame ();
 			}
 			
 			// Waveを作成する
 			GameObject g = (GameObject)Instantiate (waves [currentWave], transform.position, Quaternion.identity);
-			
+
 			// WaveをEmitterの子要素にする
 			g.transform.parent = transform;
-			
-			// Waveの子要素のEnemyが全て削除されるまで待機する
-			while (g.transform.childCount != 0) {
+
+            GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+            int j = 0;
+            if (enemy != null)
+            {
+                //print("Find enemy");
+                foreach (var val in enemy)
+                {
+                    
+                }
+            }
+
+            // Waveの子要素のEnemyが全て削除されるまで待機する
+            while (g.transform.childCount != 0) {
 				yield return new WaitForEndOfFrame ();
 			}
 			
@@ -53,8 +57,9 @@ public class Emitter : MonoBehaviour
 			// 格納されているWaveを全て実行したらcurrentWaveを0にする（最初から -> ループ）
 			if (waves.Length <= ++currentWave) {
 				currentWave = 0;
-			}
-			
+                manager.level++;
+                manager.levelUP();
+            }
 		}
 	}
 }

@@ -10,44 +10,37 @@ public class Manager : MonoBehaviour
 
     //HP GUIプレハブ
     public GameObject hpGUI;
-  
 
+    //Level up判定
+    public int level = 1;
+    
+    //Level GUI
+    public GameObject levelGUI;
+    
     // ボタンが押されると対応する変数がtrueになる
-    private bool leaderBoardButton;
-    private bool commentButton;
     private bool logOutButton;
-	
 
     void Start ()
     {
-    // Titleゲームオブジェクトを検索し取得する
-    title = GameObject.Find ("Title");
+        // Titleゲームオブジェクトを検索し取得する
+        title = GameObject.Find ("Title");
     }
 
 	
   void OnGUI() {
     if( !IsPlaying() ){
       drawButton();
-
-      // ランキングボタンが押されたら
-      if ( leaderBoardButton )
-	Application.LoadLevel("LeaderBoard");
-
-      // コメントボタンが押されたら
-      if ( commentButton )
-	Application.LoadLevel("Comment");
-
       // ログアウトボタンが押されたら
-      if( logOutButton )
-	FindObjectOfType<UserAuth> ().logOut ();
+      if( logOutButton)
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
+	
 
       // 画面タップでゲームスタート
       if ( Event.current.type == EventType.MouseDown) 
 	GameStart ();
-    }
-    // ログアウト完了してたらログインメニューに戻る
-    if( FindObjectOfType<UserAuth>().currentPlayer() == null )
-      Application.LoadLevel("Login");	
+    }	
   }
 
 	
@@ -55,7 +48,8 @@ public class Manager : MonoBehaviour
     // ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
     title.SetActive (false);
     Instantiate (player, player.transform.position, player.transform.rotation);
-        Instantiate(hpGUI, hpGUI.transform.position, hpGUI.transform.rotation);
+    //HPを左下に表示
+    Instantiate(hpGUI, hpGUI.transform.position, hpGUI.transform.rotation);
   }
 	
 
@@ -80,8 +74,12 @@ public class Manager : MonoBehaviour
     // ボタンの設置
     int btnW = 120, btnH = 50;
     GUI.skin.button.fontSize = 18;
-    leaderBoardButton = GUI.Button( new Rect(0*btnW, 0, btnW, btnH), "Leader Board" );
-    commentButton     = GUI.Button( new Rect(1*btnW, 0, btnW, btnH), "Comment" );
     logOutButton      = GUI.Button( new Rect(2*btnW, 0, btnW, btnH), "Log Out" );
   }
+
+    public void levelUP()
+    {
+        print("Level: " + level);
+        levelGUI.GetComponent<GUIText>().text = "Level: " + level.ToString();
+    }
 }

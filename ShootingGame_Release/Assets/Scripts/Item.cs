@@ -32,9 +32,6 @@ public class Item : MonoBehaviour {
         // レイヤー名がPlayer以外の時は何も行わない
         if (layerName != "Player") return;
 
-        // PlayerのTransformを取得
-        //Transform playerTransform = c.transform.parent;
-
         // スコアコンポーネントを取得してポイントを追加
         FindObjectOfType<Score>().AddPoint(point);
 
