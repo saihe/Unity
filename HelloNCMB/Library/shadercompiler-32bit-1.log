@@ -1,5 +1,9 @@
 Base path: C:/Program Files/Unity/Editor/Data
+<<<<<<< Updated upstream:HelloNCMB/Library/shadercompiler-32bit-1.log
 Pipe name: \\.\pipe\UnityShaderCompiler-32bit-1-7236
+=======
+Pipe name: \\.\pipe\UnityShaderCompiler-32bit-1-5500
+>>>>>>> Stashed changes:ShootingGame/Library/shadercompiler-32bit-1.log
 Cmd: getPlatforms
 Unhandled exception: Readfile from pipe failed. GLE=パイプは終了しました。
 
