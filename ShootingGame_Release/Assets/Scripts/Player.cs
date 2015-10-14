@@ -13,14 +13,24 @@ public class Player : MonoBehaviour
     //HP
     public int hp = 5;
 
+    //AtackPower
+    public int ap = 1;
+
     //HP GUI
     GameObject hpGUI;
+
+    //PowerGUI
+    GameObject powerGUI;
 
     IEnumerator Start ()
     {
         // Spaceshipコンポーネントを取得
         spaceship = GetComponent<Spaceship> ();
-        
+
+        //HP GUIの作成
+        hpGUI = GameObject.Find("HP GUI");
+        powerGUI = GameObject.Find("Power GUI");
+
         while (true) {
 
             // 弾をプレイヤーと同じ位置/角度で作成
@@ -49,7 +59,8 @@ public class Player : MonoBehaviour
         Move (direction);
 
         //HP GUIの監視
-        chageHpGUI();
+        changeHpGUI();
+
     }
 
     // 機体の移動
@@ -82,29 +93,41 @@ public class Player : MonoBehaviour
                 
     }
 
-    void chageHpGUI()
+    //HP GUIの変更
+    void changeHpGUI()
     {
-        //HP GUIの変更
-        if(hp < 10)
+        //tryしないと動くがNullReferenceErrorになる
+        try
         {
-            hpGUI.GetComponent<GUIText>().text = "HP: " + hp.ToString();
+            if (hp < 10)
+
+            {
+                hpGUI.GetComponent<GUIText>().text = "HP: " + hp.ToString();
+            }
+            else if(hp >= 10)
+            {
+                hpGUI.GetComponent<GUIText>().text = "HP: MAX !!";
+            }
+
         }
-        else
+        catch
         {
-            hpGUI.GetComponent<GUIText>().text = "HP: MAX !!";
+
         }
+    }
+
+    //Power GUIの変更
+    void changePowerGUI()
+    {
+        //Bulletオブジェクトを一つ検索しGUI変更
+        Bullet bullet = FindObjectOfType<Bullet>();
+        print("power: " + bullet.power);
+        powerGUI.GetComponent<GUIText>().text = "A/Level: " + bullet.power.ToString();
     }
 
     // ぶつかった瞬間に呼び出される
     void OnTriggerEnter2D (Collider2D c)
     {
-        //HP GUIの作成
-        hpGUI = new GameObject();
-        hpGUI = GameObject.Find("HP GUI(Clone)");
-
-        //HP GUIの変更
-        hpGUI.GetComponent<GUIText>().text = "HP: " + hp.ToString();
-
         //print("hp: " + hp);
         // レイヤー名を取得
         string layerName = LayerMask.LayerToName (c.gameObject.layer);
@@ -116,16 +139,23 @@ public class Player : MonoBehaviour
             Destroy (c.gameObject);
         }
 
+        //Itemの効果
         if(layerName == "Item")
         {
             switch (c.gameObject.name)
             {
+                //赤
                 case "item1(Clone)":
                     //print("name: item1");
+                    ap++;
+                    //Buller Powerの監視
+                    changePowerGUI();
                     break;
+                //黄
                 case "item2(Clone)":
                     //print("name: item2");
                     break;
+                //緑
                 case "item3(Clone)":
                     //print("name: item3");
                     if(hp < 10)
@@ -138,6 +168,7 @@ public class Player : MonoBehaviour
                         break;
                     }
                     break;
+                //青
                 case "item4(Clone)":
                     //print("name: item4");
                     hp = 10;
@@ -173,6 +204,10 @@ public class Player : MonoBehaviour
             {
                 //HP GUIの変更
                 hpGUI.GetComponent<GUIText>().text = "A bone";
+
+                //A/Levelを初期化
+                ap = 1;
+                changePowerGUI();
 
                 // Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す
                 FindObjectOfType<Manager>().GameOver();

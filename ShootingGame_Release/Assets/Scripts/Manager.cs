@@ -48,20 +48,22 @@ public class Manager : MonoBehaviour
     // ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
     title.SetActive (false);
     Instantiate (player, player.transform.position, player.transform.rotation);
-    //HPを左下に表示
-    Instantiate(hpGUI, hpGUI.transform.position, hpGUI.transform.rotation);
   }
 	
 
-  public void GameOver() {
+    public void GameOver() {
 
-    PlayerPrefs.SetInt ("lastWave", FindObjectOfType<Emitter>().currentWave );
-    PlayerPrefs.Save ();
+        PlayerPrefs.SetInt ("lastWave", FindObjectOfType<Emitter>().currentWave );
+        PlayerPrefs.Save ();
 
-    FindObjectOfType<Score> ().Save ();
-    // ゲームオーバー時に、タイトルを表示する
-    title.SetActive (true);
-  }
+        FindObjectOfType<Score> ().Save ();
+        //E/Levelを初期化
+        level = 1;
+        levelUP();
+
+        // ゲームオーバー時に、タイトルを表示する
+        title.SetActive (true);
+    }
 
 
   public bool IsPlaying () {
@@ -80,6 +82,6 @@ public class Manager : MonoBehaviour
     public void levelUP()
     {
         print("Level: " + level);
-        levelGUI.GetComponent<GUIText>().text = "Level: " + level.ToString();
+        levelGUI.GetComponent<GUIText>().text = "E/Level: " + level.ToString();
     }
 }

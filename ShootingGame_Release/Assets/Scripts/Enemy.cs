@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
 
 		// Bulletコンポーネントを取得
 		Bullet bullet =  playerBulletTransform.GetComponent<Bullet>();
-
+        //print("bullet.power: " + bullet.power );
 		// ヒットポイントを減らす
 		hp = hp - bullet.power;
 
@@ -91,8 +91,6 @@ public class Enemy : MonoBehaviour
                 //Itemを持っていない
                 haveItem = false;
             }
-            //haveRandom無効
-            haveItem = true;
             //print("haveItem: " + haveItem);
 
 			// スコアコンポーネントを取得してポイントを追加
@@ -104,11 +102,37 @@ public class Enemy : MonoBehaviour
             // エネミーの削除
             Destroy (gameObject);
 
+            //haveRandom無効
+            //haveItem = true;
+
+            //Itemを作るかどうか
             if (haveItem == true)
             {
-                int num = Random.Range(0, items.Length);
+                int itemRan = Random.Range(0, 100);
+                int num = 0;
+                // 0-34 = 35%
+                if (itemRan < 35) 
+                {
+                    num = 0;
+                }
+                //35-50 = 16%
+                else if(itemRan > 34 && itemRan < 51)
+                {
+                    num = 1;
+                }
+                //51-77 = 27%
+                else if(itemRan > 50 && itemRan < 78)
+                {
+                    num = 2;
+                }
+                //78-99 = 22%
+                else if(itemRan > 77 && itemRan < 100)
+                {
+                    num = 3;
+                }
+
                 //Itemをインスタンス
-                Instantiate(items[3], gameObject.transform.position, items[num].transform.rotation);
+                Instantiate(items[num], gameObject.transform.position, items[num].transform.rotation);
             }
         }
         else{
@@ -117,12 +141,36 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+    //HPを変更
     public int setHp(int level)
     {
         print("Input Level: " + level);
         hp = level * hp;
-        hp = 1000;
+        //hp = 1000;
         print("currentHP: " + hp);
         return hp;
     }
+
+    //Speedを変更
+    public float setSpeed(int level)
+    {
+        spaceship = GetComponent<Spaceship>();
+        print("Current Speed: " + spaceship.speed);
+        float speedUp = 1.0f + (level * 0.4f);
+        print("Speed UP: *" + speedUp);
+        spaceship.speed = spaceship.speed * speedUp;
+        return spaceship.speed;
+    }
+
+    //Speedを変更
+    public float setDelay(int level)
+    {
+        spaceship = GetComponent<Spaceship>();
+        print("Current Speed: " + spaceship.speed);
+        float speedUp = level * 0.9f;
+        print("Speed UP: *" + speedUp);
+        spaceship.shotDelay = spaceship.shotDelay * speedUp;
+        return spaceship.shotDelay;
+    }
+
 }

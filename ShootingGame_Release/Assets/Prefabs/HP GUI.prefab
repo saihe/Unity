@@ -36,7 +36,7 @@ GUIText:
   m_GameObject: {fileID: 150368}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 0
+  m_Text: 'HP: 0'
   m_Anchor: 6
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
@@ -48,7 +48,7 @@ GUIText:
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4278255601
+    rgba: 4278386432
   m_PixelCorrect: 1
   m_RichText: 1
 --- !u!1001 &100100000
@@ -64,7 +64,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.rgba
-      value: 4278255601
+      value: 4278386432
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
