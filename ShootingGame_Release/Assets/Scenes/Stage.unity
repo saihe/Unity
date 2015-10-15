@@ -225,7 +225,7 @@ GUIText:
   m_GameObject: {fileID: 198991671}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Tap To Start
+  m_Text: Tap To Set
   m_Anchor: 1
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
@@ -333,7 +333,7 @@ GameObject:
   - 4: {fileID: 370538990}
   - 132: {fileID: 370538991}
   m_Layer: 0
-  m_Name: Now loading...
+  m_Name: Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,8 +349,8 @@ Transform:
   m_LocalPosition: {x: .5, y: .649999976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1400077912}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!132 &370538991
 GUIText:
   m_ObjectHideFlags: 0
@@ -782,7 +782,7 @@ GameObject:
   - 4: {fileID: 1178735463}
   - 132: {fileID: 1178735464}
   m_Layer: 0
-  m_Name: Shooting Game
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -798,8 +798,8 @@ Transform:
   m_LocalPosition: {x: .5, y: .649999976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1400077912}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!132 &1178735464
 GUIText:
   m_ObjectHideFlags: 0
@@ -808,7 +808,7 @@ GUIText:
   m_GameObject: {fileID: 1178735462}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Stage 1
+  m_Text: Stage Start
   m_Anchor: 1
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
@@ -852,35 +852,6 @@ Transform:
   - {fileID: 198991672}
   m_Father: {fileID: 0}
   m_RootOrder: 7
---- !u!1 &1400077911
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1400077912}
-  m_Layer: 0
-  m_Name: Stage Level
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1400077912
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1400077911}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1178735463}
-  - {fileID: 370538990}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
 --- !u!1 &1412233679
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class DestroyArea : MonoBehaviour
 	
 	void OnTriggerExit2D (Collider2D c)
 	{
-		Destroy (c.gameObject);
+        //Destroy (c.gameObject);
+        ObjectPool.instance.ReleaseGameObject(c.gameObject);
 	}
 }

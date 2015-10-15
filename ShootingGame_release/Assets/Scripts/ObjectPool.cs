@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ObjectPool : MonoBehaviour
 {
     private static ObjectPool _instance;
-
+    
     // シングルトン
     public static ObjectPool instance
     {
@@ -13,13 +13,11 @@ public class ObjectPool : MonoBehaviour
         {
             if (_instance == null)
             {
-
                 // シーン上から取得する
                 _instance = FindObjectOfType<ObjectPool>();
 
                 if (_instance == null)
                 {
-
                     // ゲームオブジェクトを作成しObjectPoolコンポーネントを追加する
                     _instance = new GameObject("ObjectPool").AddComponent<ObjectPool>();
                 }
@@ -34,6 +32,7 @@ public class ObjectPool : MonoBehaviour
     // ゲームオブジェクトをpooledGameObjectsから取得する。必要であれば新たに生成する
     public GameObject GetGameObject(GameObject prefab, Vector2 position, Quaternion rotation)
     {
+        print("Prefab to Pool: " + prefab.name);
         // プレハブのインスタンスIDをkeyとする
         int key = prefab.GetInstanceID();
 
@@ -52,7 +51,7 @@ public class ObjectPool : MonoBehaviour
         {
 
             go = gameObjects[i];
-
+            /*
             // 現在非アクティブ（未使用）であれば
             if (go.activeInHierarchy == false)
             {
@@ -67,7 +66,7 @@ public class ObjectPool : MonoBehaviour
                 go.SetActive(true);
 
                 return go;
-            }
+            }*/
         }
 
         // 使用できるものがないので新たに生成する

@@ -98,10 +98,13 @@ public class Enemy : MonoBehaviour
 
 			// 爆発
 			spaceship.Explosion ();
-            
-            // エネミーの削除
-            Destroy (gameObject);
 
+            // エネミーの削除して元の位置に戻す
+            //Destroy (gameObject);
+            gameObject.SetActive(false);
+            Emitter emitter = FindObjectOfType<Emitter>();
+            emitter.setActive();
+            gameObject.transform.position = gameObject.transform.position;
             //haveRandom無効
             //haveItem = true;
 

@@ -8,6 +8,12 @@ public class Manager : MonoBehaviour
     // タイトル
     private GameObject title;
 
+    //ロード中
+    private GameObject loading;
+
+    //ステージレベル
+    private GameObject stageStart;
+
     //HP GUIプレハブ
     public GameObject hpGUI;
 
@@ -20,35 +26,63 @@ public class Manager : MonoBehaviour
     // ボタンが押されると対応する変数がtrueになる
     private bool logOutButton;
 
+    //ゲーム開始フラグ
+    private bool start;
+
     void Start ()
     {
         // Titleゲームオブジェクトを検索し取得する
         title = GameObject.Find ("Title");
+        loading = GameObject.Find("Loading");
+        loading.SetActive(false);
+        stageStart = GameObject.Find("Start");
+        stageStart.SetActive(false);
+        start = false;
     }
 
 	
-  void OnGUI() {
-    if( !IsPlaying() ){
-      drawButton();
-      // ログアウトボタンが押されたら
-      if( logOutButton)
+    void OnGUI() {
+        if( start == false){
+            drawButton();
+            // ログアウトボタンが押されたら
+            if( logOutButton)
+                {
+                    Application.LoadLevel(Application.loadedLevel);
+                }
+	
+
+            // 画面タップでゲームスタート
+            if(loading.activeSelf == false)
             {
-                Application.LoadLevel(Application.loadedLevel);
-            }
-	
+                if (Event.current.type == EventType.MouseDown)
+                {
+                    setLoad();
+                }
+            }            
+        }	
+    }
 
-      // 画面タップでゲームスタート
-      if ( Event.current.type == EventType.MouseDown) 
-	GameStart ();
-    }	
-  }
-
+    void setLoad()
+    {
+        title.SetActive(false);
+        loading.SetActive(true);
+        start = true;
+    }
+    public bool getStart()
+    {
+        return start;
+    }
+    public bool NowLoading()
+    {
+        //ロード中かどうか
+        return loading.activeSelf == true;
+    }
 	
-  void GameStart() {
-    // ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
-    title.SetActive (false);
-    Instantiate (player, player.transform.position, player.transform.rotation);
-  }
+    public void GameStart() {
+        // ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
+        loading.SetActive(false);
+        Instantiate (player, player.transform.position, player.transform.rotation);
+    }
 	
 
     public void GameOver() {
@@ -62,22 +96,22 @@ public class Manager : MonoBehaviour
         levelUP();
 
         // ゲームオーバー時に、タイトルを表示する
-        title.SetActive (true);
+        start = false;
     }
 
 
-  public bool IsPlaying () {
-    // ゲーム中かどうかはタイトルの表示/非表示で判断する
-    return title.activeSelf == false;
-  }
+    public bool IsPlaying () {
+        // ゲーム中 = true
+        return start;
+    }
 
 
-  private void drawButton() {    
-    // ボタンの設置
-    int btnW = 120, btnH = 50;
-    GUI.skin.button.fontSize = 18;
-    logOutButton      = GUI.Button( new Rect(2*btnW, 0, btnW, btnH), "Log Out" );
-  }
+    private void drawButton() {    
+        // ボタンの設置
+        int btnW = 120, btnH = 50;
+        GUI.skin.button.fontSize = 18;
+        logOutButton      = GUI.Button( new Rect(2*btnW, 0, btnW, btnH), "Log Out" );
+    }
 
     public void levelUP()
     {
