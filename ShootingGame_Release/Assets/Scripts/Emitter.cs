@@ -22,6 +22,14 @@ public class Emitter : MonoBehaviour
     //リスト
     List<GameObject> wave;
 
+    //現在のwave
+    GameObject nowWave;
+
+    //現在のwaveのカウント
+    int nowCount;
+
+
+
     public int setActive()
     {
         checkActive++;
@@ -51,13 +59,15 @@ public class Emitter : MonoBehaviour
             //waveを作成し非アクティブにしてゲーム開始
             if(transform.childCount == 0)
             {
+                nowCount = 0;
                 wave = new List<GameObject>();
+                nowWave = new GameObject();
                 int v = 0;
                 foreach (var val in waves)
                 {
                     // Waveを作成する
                     g = (GameObject)Instantiate(val, transform.position, Quaternion.identity);
-
+                    
                     //リストに追加
                     wave.Add(g);
                     print("wave: " + wave[v]);
@@ -86,43 +96,66 @@ public class Emitter : MonoBehaviour
             }
             
             //Waveを順次アクティブにする
-            foreach(var val in wave)
+            if(nowCount == 0)
             {
-                print("val: " + val);
-                val.SetActive(true);
-                
-                /*
-                while (checkActive < val.transform.childCount)
-                { 
+                print("CreateEnemy");
+                foreach (var val in wave)
+                {
+                    nowCount++;
+                    checkActive = 0;
+                    nowWave = val;
+                    print("nowWave: " + nowWave.name);
+                    print("nowWave.childCount: " + nowWave.transform.childCount);
+                    val.SetActiveRecursively(true);
                     
-                    yield return new WaitForEndOfFrame();
-                }*/
+
+                    //Enemyがいなくなったかどうか監視
+                    while (nowWave.activeSelf == true)
+                    {
+                        //Enemyがいなくなった数を監視
+                        if (checkActive >= nowWave.transform.childCount)
+                        {
+                            nowWave.SetActive(false);
+                            print(nowWave.name + " = false");
+                            nowCount++;
+                            print("nowCount: " + nowCount);
+                        }
+                        else
+                        {
+                            //Enemyがいる間は待機
+                            yield return new WaitForEndOfFrame();
+                        }
+                    }
+                }
+
             }
-            
-            
+
+
             // Waveの子要素のEnemyが全て削除されるまで待機する
-            while (g.transform.childCount != 0) {
+            /*while (g.transform.childCount != 0) {
 				yield return new WaitForEndOfFrame ();
-			}
+			}*/
 
             // Waveの削除
             //Destroy (g);
-            
-			// 格納されているWaveを全て実行したらcurrentWaveを0にする（最初から -> ループ）
+
+            // 格納されているWaveを全て実行したらcurrentWaveを0にする（最初から -> ループ）
+            //Emitterの子要素であるwaveがすべて非アクティブになったらループ
+            /*
 			if (waves.Length <= ++currentWave) {
 				currentWave = 0;
                 manager.level++;
                 manager.levelUP();
             }
-		}
-	}
-    /*
-    void Update()
-    {
-        if (!(checkActive < val.transform.childCount))
-        {
-            val.SetActive(false);
-            print("val = false");
+            */
+            if (nowCount >= transform.childCount)
+            {
+                print("Emitter's Chilren: " + transform.childCount);
+                nowCount = 0;
+                manager.level++;
+                manager.levelUP();
+            }
+
         }
-    }*/
+	}   
 }

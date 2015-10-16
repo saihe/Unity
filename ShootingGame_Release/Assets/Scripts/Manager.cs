@@ -97,6 +97,7 @@ public class Manager : MonoBehaviour
 
         // ゲームオーバー時に、タイトルを表示する
         start = false;
+        title.SetActive(true);
     }
 
 

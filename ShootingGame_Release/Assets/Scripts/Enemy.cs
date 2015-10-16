@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,15 +21,53 @@ public class Enemy : MonoBehaviour
 
     //Itemを持っているかどうかランダム
     public int haveRandom = 3;
-    
-	IEnumerator Start ()
+
+    //Enemyの初期値
+    private int defaultHP;
+
+    private Vector3 defaultPostion;
+
+    private float defaultSpeed;
+
+    IEnumerator routine;
+
+    void Start()
+    {
+        //Enemyの初期値を記憶
+        defaultHP = hp;
+        defaultPostion = gameObject.transform.position;
+        defaultSpeed = spaceship.speed;
+        routine = enemy();
+        StopCoroutine(routine);
+
+    }
+
+    void OnEnable()
+    {
+        if(routine != null)
+        {
+            print("restart");
+            //コルーチン起動
+            StartCoroutine(routine);
+        }
+        else
+        {
+            print("null");
+            routine = enemy();
+        }
+    }
+
+
+
+    IEnumerator enemy ()
 	{
         // Spaceshipコンポーネントを取得
         spaceship = GetComponent<Spaceship> ();
 
-       	// ローカル座標のY軸のマイナス方向に移動する
-		Move (transform.up * -1);
+        // ローカル座標のY軸のマイナス方向に移動する
+        Move (transform.up * -1);
         print("EnemyHP: " + hp);
+
         // canShotがfalseの場合、ここでコルーチンを終了させる
         if (spaceship.canShot == false) {
 			yield break;
@@ -49,6 +88,7 @@ public class Enemy : MonoBehaviour
     // 機体の移動
     public void Move (Vector2 direction)
 	{
+        print("Move");
 		GetComponent<Rigidbody2D>().velocity = direction * spaceship.speed;
 	}
 
@@ -80,7 +120,7 @@ public class Enemy : MonoBehaviour
 		if(hp <= 0 )
 		{
             //ランダムでアイテムを持っているか判定
-            haveRandom = Random.Range(1, 10);
+            haveRandom = UnityEngine.Random.Range(1, 10);
             if(haveRandom > 0 && haveRandom < 4)
             {
                 //Itemを持っている
@@ -104,14 +144,14 @@ public class Enemy : MonoBehaviour
             gameObject.SetActive(false);
             Emitter emitter = FindObjectOfType<Emitter>();
             emitter.setActive();
-            gameObject.transform.position = gameObject.transform.position;
+
             //haveRandom無効
             //haveItem = true;
 
             //Itemを作るかどうか
             if (haveItem == true)
             {
-                int itemRan = Random.Range(0, 100);
+                int itemRan = UnityEngine.Random.Range(0, 100);
                 int num = 0;
                 // 0-34 = 35%
                 if (itemRan < 35) 
@@ -137,8 +177,13 @@ public class Enemy : MonoBehaviour
                 //Itemをインスタンス
                 Instantiate(items[num], gameObject.transform.position, items[num].transform.rotation);
             }
+            hp = defaultHP;
+            gameObject.transform.position = defaultPostion;
+            spaceship.speed = defaultSpeed;
+
         }
-        else{
+        else
+        {
 			// Damageトリガーをセット
 			spaceship.GetAnimator().SetTrigger("Damage");
 		}
@@ -165,7 +210,7 @@ public class Enemy : MonoBehaviour
         return spaceship.speed;
     }
 
-    //Speedを変更
+    //shoDelayを変更
     public float setDelay(int level)
     {
         spaceship = GetComponent<Spaceship>();

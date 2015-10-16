@@ -18,6 +18,11 @@ public class DestroyArea : MonoBehaviour
 	void OnTriggerExit2D (Collider2D c)
 	{
         //Destroy (c.gameObject);
-        ObjectPool.instance.ReleaseGameObject(c.gameObject);
+        c.gameObject.SetActive(false);
+        if(c.name == "Enemy")
+        {
+            Emitter emitter = FindObjectOfType<Emitter>();
+            emitter.setActive();
+        }
 	}
 }

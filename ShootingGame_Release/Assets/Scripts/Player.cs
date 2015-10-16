@@ -177,12 +177,13 @@ public class Player : MonoBehaviour
                     GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
                     if(enemy != null)
                     {
-                        Emitter emitter = GetComponent<Emitter>();
+                        Emitter emitter = FindObjectOfType<Emitter>();
                         //print("Find enemy");
                         foreach(var val in enemy)
                         {
+                            print("Item4 val: " + val.name);
                             //Enemy削除
-                            Destroy(val);
+                            //Destroy(val);
                             val.SetActive(false);
                             emitter.setActive();
                             //爆発
